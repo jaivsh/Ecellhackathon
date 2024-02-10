@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "219420508449",
+    "project_id": "ecellhackathon-9c72a",
+    "storage_bucket": "ecellhackathon-9c72a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219420508449:android:49c7880ccf248264fbbe60",
+        "android_client_info": {
+          "package_name": "com.example.ecellhacks.ecellhackathonapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoUDrWFaJ5ERpZ5PzSR_hEDBKcjj0UUlo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

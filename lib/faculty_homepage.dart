@@ -1,3 +1,4 @@
+import 'package:ecellhackathonapp/archived_app.dart';
 import 'package:ecellhackathonapp/dashboard.dart';
 import 'package:ecellhackathonapp/new_app.dart';
 import 'package:ecellhackathonapp/pending_apps.dart';
@@ -20,9 +21,7 @@ class _FacultyHomepageState extends State<FacultyHomepage> {
       DashboardScreen(),
       NewAppScreen(),
       PendingAppsScreen(),
-      Center(
-        child: Text('Archived Applications'),
-      ),
+      ArchivedAppScreen(),
       Center(
         child: Text('Settings'),
       ),
