@@ -55,7 +55,7 @@ class _FacultyHomepageState extends State<FacultyHomepage> {
               ),
               SideNavigationBarItem(
                 icon: Icons.archive_rounded,
-                label: 'Archived Applications',
+                label: 'Rejected Applications',
               ),
               SideNavigationBarItem(
                 icon: Icons.history_edu,

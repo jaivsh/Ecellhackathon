@@ -1,14 +1,14 @@
+import 'package:ecellhackathonapp/store_section_individual_item.dart';
 import 'package:flutter/material.dart';
-import 'package:side_navigation/side_navigation.dart';
 
-class PendingAppsScreen extends StatefulWidget {
-  const PendingAppsScreen({super.key});
+class OTSS extends StatefulWidget {
+  const OTSS({super.key});
 
   @override
-  State<PendingAppsScreen> createState() => _PendingAppsScreenState();
+  State<OTSS> createState() => _OTSSState();
 }
 
-class _PendingAppsScreenState extends State<PendingAppsScreen> {
+class _OTSSState extends State<OTSS> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,8 +17,8 @@ class _PendingAppsScreenState extends State<PendingAppsScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Center(child: Text('Order ID: #123456', style: TextStyle(fontWeight: FontWeight.bold),),),
-            SizedBox(height: 10,),
+            //Center(child: Text('Order ID: #123456', style: TextStyle(fontWeight: FontWeight.bold),),),
+            //SizedBox(height: 10,),
             // Search Bar
             Container(
               decoration: BoxDecoration(
@@ -69,7 +69,10 @@ class _PendingAppsScreenState extends State<PendingAppsScreen> {
               child: ListView.builder(
                 itemCount: 10, // Replace with the actual number of rectangles
                 itemBuilder: (context, index) {
-                  return Container(
+                  return GestureDetector(onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => SSIndividual()));
+
+                  },child:Container(
                     margin: EdgeInsets.symmetric(vertical: 8.0),
                     decoration: BoxDecoration(
                       color: Colors.blue,
@@ -83,7 +86,7 @@ class _PendingAppsScreenState extends State<PendingAppsScreen> {
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
-                  );
+                  ));
                 },
               ),
             ),
@@ -97,21 +100,21 @@ class _PendingAppsScreenState extends State<PendingAppsScreen> {
   // Function to show filter options dialog
   void showFilterOptionsDialog(BuildContext context) {
     showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text('Filter Options'),
-            content: Text('Add your filter options here'),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text('Cancel'),
-              ),
-            ],
-          );
-        },
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Filter Options'),
+          content: Text('Add your filter options here'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Cancel'),
+            ),
+          ],
+        );
+      },
     );
   }
 }

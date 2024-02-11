@@ -1,8 +1,15 @@
 import 'package:ecellhackathonapp/faculty_homepage.dart';
+import 'package:ecellhackathonapp/signup.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   //final gsheets = GSheets(credentials);
   //final ss =  await gsheets.spreadsheet(spreadsheetid);
   //var sheet = ss.workSheetByTitle('Sheet1');
@@ -17,6 +24,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  String proftype = '';
+  String department = '';
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -54,10 +69,23 @@ class _MyAppState extends State<MyApp> {
                   decoration: TextDecoration.underline,
                 ),
               ),
-                SizedBox(height: 16.0),
                 DropdownButton<String>(
-                  hint: Text('Department'),
-                  items: ['Department A', 'Department B', 'Department C']
+                  hint: Text('Select your department'),
+                  items: ['Computer Science and Engineering', 'Electronics and Communications Engineering', 'Electrical Engineering', 'Mechanical Engineering', 'Civil Engineering', 'Chemical Engineering','Metallurgical Engineering', 'Mining Engineering']
+                      .map((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                  onChanged: (String? newValue) {
+                    // Handle dropdown value change if needed
+                  },
+                ),
+                SizedBox(height: 15,),
+                DropdownButton<String>(
+                  hint: Text('Select your Designation'),
+                  items: ['Faculty', 'Head of Department(HOD)', 'Dean', 'Head of Store Section', 'Head of Accounts', ]
                       .map((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
@@ -84,7 +112,11 @@ class _MyAppState extends State<MyApp> {
               SizedBox(height: 15,),
                 ElevatedButton(onPressed: () {
                   Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => FacultyHomepage()));
-                }, child: Text('LOGIN'))
+                }, child: Text('LOGIN')),
+                SizedBox(height: 10,),
+                ElevatedButton(onPressed: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => SignupScreen()));
+                }, child: Text('SIGNUP'))
               ],),),)),
               ],
           ),)));

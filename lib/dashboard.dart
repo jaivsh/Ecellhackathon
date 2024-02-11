@@ -51,7 +51,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           ),
                           padding: EdgeInsets.all(16.0),
                           child: Text(
-                            'Approved Applications',
+                            'In-Progress Applications',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 24.0,
