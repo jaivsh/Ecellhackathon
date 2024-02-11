@@ -4,6 +4,7 @@ import 'package:ecellhackathonapp/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'package:http/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> main() async {
@@ -32,6 +33,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    fetch();
   }
   @override
   Widget build(BuildContext context) {
@@ -149,6 +151,10 @@ class _MyAppState extends State<MyApp> {
               ],),),)),
               ],
           ),)));
+  }
+
+  void fetch() async {
+
   }
 
 }
