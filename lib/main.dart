@@ -1,4 +1,5 @@
 import 'package:ecellhackathonapp/faculty_homepage.dart';
+import 'package:ecellhackathonapp/order_type_store_section.dart';
 import 'package:ecellhackathonapp/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -24,8 +25,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String proftype = '';
-  String department = '';
+  String proftype = 'Faculty';
+  String department = 'Computer Science and Engineering';
 
   @override
   void initState() {
@@ -70,30 +71,53 @@ class _MyAppState extends State<MyApp> {
                 ),
               ),
                 DropdownButton<String>(
+                  value: department,
                   hint: Text('Select your department'),
-                  items: ['Computer Science and Engineering', 'Electronics and Communications Engineering', 'Electrical Engineering', 'Mechanical Engineering', 'Civil Engineering', 'Chemical Engineering','Metallurgical Engineering', 'Mining Engineering']
-                      .map((String value) {
+                  items: [
+                    'Computer Science and Engineering',
+                    'Electronics and Communications Engineering',
+                    'Electrical Engineering',
+                    'Mechanical Engineering',
+                    'Civil Engineering',
+                    'Chemical Engineering',
+                    'Metallurgical Engineering',
+                    'Mining Engineering'
+                  ].map((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(value),
                     );
                   }).toList(),
                   onChanged: (String? newValue) {
+                    setState(() {
+                     department = newValue!;
+                    });
                     // Handle dropdown value change if needed
+                    print('Selected Department: $newValue');
                   },
                 ),
                 SizedBox(height: 15,),
                 DropdownButton<String>(
+                  value: proftype,
                   hint: Text('Select your Designation'),
-                  items: ['Faculty', 'Head of Department(HOD)', 'Dean', 'Head of Store Section', 'Head of Accounts', ]
-                      .map((String value) {
+                  items: [
+                    'Faculty',
+                    'Head of Department(HOD)',
+                    'Dean',
+                    'Head of Store Section',
+                    'Head of Accounts',
+                  ].map((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(value),
                     );
                   }).toList(),
                   onChanged: (String? newValue) {
+                    setState(() {
+                      proftype = newValue!;
+                    });
                     // Handle dropdown value change if needed
+                    print('Selected Designation: $newValue');
                   },
                 ),
                 SizedBox(height: 16.0),
@@ -111,7 +135,12 @@ class _MyAppState extends State<MyApp> {
                 ),
               SizedBox(height: 15,),
                 ElevatedButton(onPressed: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => FacultyHomepage()));
+                  if(proftype == 'Faculty'){
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => OTSS()));
+                  }
+                  else {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => FacultyHomepage()));
+                  }
                 }, child: Text('LOGIN')),
                 SizedBox(height: 10,),
                 ElevatedButton(onPressed: () {

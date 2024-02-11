@@ -9,8 +9,24 @@ class OTSS extends StatefulWidget {
 }
 
 class _OTSSState extends State<OTSS> {
+  int selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
+    List<Widget> views = [
+      Center(
+        child: Text('Settings'),
+      ),
+      Center(
+        child: Text('Settings'),
+      ),
+      Center(
+        child: Text('Settings'),
+      ),
+      Center(
+        child: Text('Settings'),
+      ),
+    ];
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16.0),
