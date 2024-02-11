@@ -4,8 +4,10 @@ import 'package:ecellhackathonapp/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'all_orders.dart'; // Import the AllOrders widget
+import 'google_sheets_api.dart'; // Import the GoogleSheetsApi class
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,7 +35,6 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    fetch();
   }
   @override
   Widget build(BuildContext context) {
@@ -153,8 +154,5 @@ class _MyAppState extends State<MyApp> {
           ),)));
   }
 
-  void fetch() async {
-
-  }
-
 }
+
